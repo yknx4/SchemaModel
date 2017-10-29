@@ -1,6 +1,6 @@
 {
   "name": "my-project",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "This is a project kickstarted",
   "main": "index.js",
   "scripts": {
