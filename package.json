@@ -23,17 +23,13 @@
     }
   ],
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "caller-callsite": "^2.0.0",
-    "chalk": "^2.3.0",
+    "callsites": "^2.0.0",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
+    "fast-safe-stringify": "^1.2.0",
     "invariant": "^2.2.2",
-    "knex": "^0.13.0",
     "lodash": "^4.17.4",
-    "objection": "^0.8.9",
-    "pluralize": "^7.0.0",
-    "supports-color": "^5.0.0"
+    "pluralize": "^7.0.0"
   },
   "lint-staged": {
     "src/**/*.{js,json}": [
@@ -41,6 +37,10 @@
       "standard --fix",
       "git add"
     ]
+  },
+  "peerDependencies": {
+    "knex": "^0.13.0",
+    "objection": "^0.8.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -50,10 +50,13 @@
     "husky": "^0.14.3",
     "jasmine-expect": "^3.7.1",
     "jest": "^21.2.1",
+    "knex": "^0.13.0",
     "lint-staged": "^4.2.3",
     "nodemon": "^1.12.1",
+    "objection": "^0.8.9",
     "prettier": "^1.7.3",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "supports-color": "^5.0.0"
   },
   "standard": {
     "globals": [
