@@ -1,4 +1,6 @@
 import SchemaModel from '../SchemaModel'
+
+const {logger} = global.SchemaModel.config
 export default function fromSchema (schema) {
   const {title} = schema
   if (SchemaModel.$models[title] != null) {

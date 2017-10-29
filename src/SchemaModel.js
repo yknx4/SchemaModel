@@ -1,7 +1,10 @@
 import {Model} from 'objection'
 import pluralize from 'pluralize'
-import {snakeCase, mapValues, memoize} from 'lodash'
+import lodash, {mapValues, memoize, mapKeys} from 'lodash'
 import generateRelation from './util/generateRelation'
+
+const snakeCase = memoize(lodash.snakeCase)
+const camelCase = memoize(lodash.camelCase)
 
 const tableize = name => snakeCase(pluralize(name))
 
@@ -28,6 +31,22 @@ export default class SchemaModel extends Model {
   static get relationMappings () {
     const {'x-relations': relations} = this.jsonSchema
     return mapValues(relations, this.generateRelation)
+  }
+
+  $formatDatabaseJson (json) {
+    json = super.$formatDatabaseJson(json)
+
+    return mapKeys(json, (value, key) => {
+      return snakeCase(key)
+    })
+  }
+
+  $parseDatabaseJson (json) {
+    json = mapKeys(json, (value, key) => {
+      return camelCase(key)
+    })
+
+    return super.$parseDatabaseJson(json)
   }
 }
 

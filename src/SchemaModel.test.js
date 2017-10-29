@@ -10,6 +10,34 @@ describe('SchemaModel', function () {
     expect(Person.tableName).toEqual('people')
   })
 
+  it('should properly parse db rows', () => {
+    const person = new Person()
+    const dbRow = {
+      age: 1,
+      first_name: 'Ale',
+      last_name: 'Figueroa'
+    }
+    expect(person.$parseDatabaseJson(dbRow)).toEqual({
+      age: 1,
+      firstName: 'Ale',
+      lastName: 'Figueroa'
+    })
+  })
+
+  it('should properly dump to valid db rows', () => {
+    const person = new Person()
+    const data = {
+      age: 1,
+      firstName: 'Ale',
+      lastName: 'Figueroa'
+    }
+    expect(person.$formatDatabaseJson(data)).toEqual({
+      age: 1,
+      first_name: 'Ale',
+      last_name: 'Figueroa'
+    })
+  })
+
   it('should generate relations if available', () => {
     const relations = Person.relationMappings
     expect(relations).toEqual({
