@@ -1,6 +1,6 @@
 import './config'
-import app from './app'
+import SchemaModel from './SchemaModel'
+import fromSchema from './util/fromSchema'
 
-global.config = config
-
-export default app
+export {fromSchema}
+export default SchemaModel

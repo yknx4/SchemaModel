@@ -10,7 +10,7 @@
     "predev": "yarn install",
     "dev": "DEBUG=SchemaModel* nodemon dev.js | ./node_modules/.bin/bunyan -l debug -L",
     "start": "node dist/",
-    "build": "standard src/ && babel src/ -d dist"
+    "build": "standard src/ && rm -rf dist && NODE_ENV=production babel src/ -d dist"
   },
   "author": {
     "name": "Your name",

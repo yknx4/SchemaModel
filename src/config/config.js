@@ -3,13 +3,12 @@ import callsites from 'callsites'
 import debug from 'debug'
 import {inspect} from 'util'
 import {isString} from 'lodash'
-import chalk from 'chalk'
 dotenv.config()
 
 const loggerFn = prefix => debug('SchemaModel' + prefix)
 const baseLogger = loggerFn()
 
-global.logger = {
+export const logger = {
   info (...args) {
     if (!baseLogger.enabled) {
       return
