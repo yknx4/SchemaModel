@@ -1,0 +1,68 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "This is a project kickstarted",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "standard src/",
+    "test": "ENVIRONMENT=test ./node_modules/.bin/jest --runInBand --forceExit",
+    "predev": "yarn install",
+    "dev": "DEBUG=SchemaModel* nodemon dev.js | ./node_modules/.bin/bunyan -l debug -L",
+    "start": "node dist/",
+    "build": "standard src/ && babel src/ -d dist"
+  },
+  "author": {
+    "name": "Your name",
+    "email": "your@email.com"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "caller-callsite": "^2.0.0",
+    "chalk": "^2.3.0",
+    "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
+    "invariant": "^2.2.2",
+    "knex": "^0.13.0",
+    "lodash": "^4.17.4",
+    "objection": "^0.8.9",
+    "pluralize": "^7.0.0",
+    "supports-color": "^5.0.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json}": [
+      "prettier --single-quote --write",
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "husky": "^0.14.3",
+    "jasmine-expect": "^3.7.1",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.2.3",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.3",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "globals": [
+      "config",
+      "logger",
+      "any",
+      "describe",
+      "it",
+      "expect"
+    ]
+  }
+}
