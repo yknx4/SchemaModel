@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yknx4/SchemaModel.svg?branch=master)](https://travis-ci.org/yknx4/SchemaModel)
+[![Coverage Status](https://coveralls.io/repos/github/yknx4/SchemaModel/badge.svg?branch=master)](https://coveralls.io/github/yknx4/SchemaModel?branch=master)
 # SCAFFOLDER
 
 This project kickstarts a project and sets:
